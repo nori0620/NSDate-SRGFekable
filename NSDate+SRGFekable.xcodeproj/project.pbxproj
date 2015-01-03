@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC367D8C1A55348300B87159 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC367D8B1A55348300B87159 /* main.m */; };
+		CC367D8F1A55348300B87159 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC367D8E1A55348300B87159 /* AppDelegate.m */; };
+		CC367D921A55348300B87159 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC367D911A55348300B87159 /* ViewController.m */; };
+		CC367D951A55348300B87159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC367D931A55348300B87159 /* Main.storyboard */; };
+		CC367D971A55348300B87159 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC367D961A55348300B87159 /* Images.xcassets */; };
+		CC367D9A1A55348300B87159 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC367D981A55348300B87159 /* LaunchScreen.xib */; };
+		CC367DA61A55348400B87159 /* NSDate_SRGFekableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC367DA51A55348400B87159 /* NSDate_SRGFekableTests.m */; };
+		CC367DB81A55359E00B87159 /* NSDate+SRGFekable.m in Sources */ = {isa = PBXBuildFile; fileRef = CC367DB71A55359E00B87159 /* NSDate+SRGFekable.m */; };
+		CC367DBC1A55BCBF00B87159 /* SRGFakableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC367DBA1A55BCBF00B87159 /* SRGFakableViewController.m */; };
+		CC367DBD1A55BCBF00B87159 /* SRGFakableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC367DBB1A55BCBF00B87159 /* SRGFakableViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CC367DA01A55348400B87159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC367D7E1A55348300B87159 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC367D851A55348300B87159;
+			remoteInfo = "NSDate+SRGFekable";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CC367D861A55348300B87159 /* NSDate+SRGFekable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NSDate+SRGFekable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC367D8A1A55348300B87159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC367D8B1A55348300B87159 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC367D8D1A55348300B87159 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CC367D8E1A55348300B87159 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CC367D901A55348300B87159 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CC367D911A55348300B87159 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CC367D941A55348300B87159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CC367D961A55348300B87159 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CC367D991A55348300B87159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CC367D9F1A55348400B87159 /* NSDate+SRGFekableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NSDate+SRGFekableTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC367DA41A55348400B87159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC367DA51A55348400B87159 /* NSDate_SRGFekableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDate_SRGFekableTests.m; sourceTree = "<group>"; };
+		CC367DB61A55359E00B87159 /* NSDate+SRGFekable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SRGFekable.h"; sourceTree = "<group>"; };
+		CC367DB71A55359E00B87159 /* NSDate+SRGFekable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SRGFekable.m"; sourceTree = "<group>"; };
+		CC367DB91A55BCBF00B87159 /* SRGFakableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRGFakableViewController.h; sourceTree = "<group>"; };
+		CC367DBA1A55BCBF00B87159 /* SRGFakableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRGFakableViewController.m; sourceTree = "<group>"; };
+		CC367DBB1A55BCBF00B87159 /* SRGFakableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRGFakableViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC367D831A55348300B87159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC367D9C1A55348400B87159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC367D7D1A55348300B87159 = {
+			isa = PBXGroup;
+			children = (
+				CC367DAF1A5534E800B87159 /* Classes */,
+				CC367D881A55348300B87159 /* NSDate+SRGFekable */,
+				CC367DA21A55348400B87159 /* NSDate+SRGFekableTests */,
+				CC367D871A55348300B87159 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC367D871A55348300B87159 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC367D861A55348300B87159 /* NSDate+SRGFekable.app */,
+				CC367D9F1A55348400B87159 /* NSDate+SRGFekableTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC367D881A55348300B87159 /* NSDate+SRGFekable */ = {
+			isa = PBXGroup;
+			children = (
+				CC367D8D1A55348300B87159 /* AppDelegate.h */,
+				CC367D8E1A55348300B87159 /* AppDelegate.m */,
+				CC367D901A55348300B87159 /* ViewController.h */,
+				CC367D911A55348300B87159 /* ViewController.m */,
+				CC367D931A55348300B87159 /* Main.storyboard */,
+				CC367D961A55348300B87159 /* Images.xcassets */,
+				CC367D981A55348300B87159 /* LaunchScreen.xib */,
+				CC367D891A55348300B87159 /* Supporting Files */,
+			);
+			path = "NSDate+SRGFekable";
+			sourceTree = "<group>";
+		};
+		CC367D891A55348300B87159 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC367D8A1A55348300B87159 /* Info.plist */,
+				CC367D8B1A55348300B87159 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC367DA21A55348400B87159 /* NSDate+SRGFekableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC367DA51A55348400B87159 /* NSDate_SRGFekableTests.m */,
+				CC367DA31A55348400B87159 /* Supporting Files */,
+			);
+			path = "NSDate+SRGFekableTests";
+			sourceTree = "<group>";
+		};
+		CC367DA31A55348400B87159 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC367DA41A55348400B87159 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC367DAF1A5534E800B87159 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CC367DB61A55359E00B87159 /* NSDate+SRGFekable.h */,
+				CC367DB71A55359E00B87159 /* NSDate+SRGFekable.m */,
+				CC367DB91A55BCBF00B87159 /* SRGFakableViewController.h */,
+				CC367DBA1A55BCBF00B87159 /* SRGFakableViewController.m */,
+				CC367DBB1A55BCBF00B87159 /* SRGFakableViewController.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC367D851A55348300B87159 /* NSDate+SRGFekable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC367DA91A55348400B87159 /* Build configuration list for PBXNativeTarget "NSDate+SRGFekable" */;
+			buildPhases = (
+				CC367D821A55348300B87159 /* Sources */,
+				CC367D831A55348300B87159 /* Frameworks */,
+				CC367D841A55348300B87159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NSDate+SRGFekable";
+			productName = "NSDate+SRGFekable";
+			productReference = CC367D861A55348300B87159 /* NSDate+SRGFekable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CC367D9E1A55348400B87159 /* NSDate+SRGFekableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC367DAC1A55348400B87159 /* Build configuration list for PBXNativeTarget "NSDate+SRGFekableTests" */;
+			buildPhases = (
+				CC367D9B1A55348400B87159 /* Sources */,
+				CC367D9C1A55348400B87159 /* Frameworks */,
+				CC367D9D1A55348400B87159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC367DA11A55348400B87159 /* PBXTargetDependency */,
+			);
+			name = "NSDate+SRGFekableTests";
+			productName = "NSDate+SRGFekableTests";
+			productReference = CC367D9F1A55348400B87159 /* NSDate+SRGFekableTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC367D7E1A55348300B87159 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = soragoto;
+				TargetAttributes = {
+					CC367D851A55348300B87159 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					CC367D9E1A55348400B87159 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = CC367D851A55348300B87159;
+					};
+				};
+			};
+			buildConfigurationList = CC367D811A55348300B87159 /* Build configuration list for PBXProject "NSDate+SRGFekable" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CC367D7D1A55348300B87159;
+			productRefGroup = CC367D871A55348300B87159 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC367D851A55348300B87159 /* NSDate+SRGFekable */,
+				CC367D9E1A55348400B87159 /* NSDate+SRGFekableTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC367D841A55348300B87159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC367D951A55348300B87159 /* Main.storyboard in Resources */,
+				CC367D9A1A55348300B87159 /* LaunchScreen.xib in Resources */,
+				CC367DBD1A55BCBF00B87159 /* SRGFakableViewController.xib in Resources */,
+				CC367D971A55348300B87159 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC367D9D1A55348400B87159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC367D821A55348300B87159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC367D921A55348300B87159 /* ViewController.m in Sources */,
+				CC367D8F1A55348300B87159 /* AppDelegate.m in Sources */,
+				CC367DB81A55359E00B87159 /* NSDate+SRGFekable.m in Sources */,
+				CC367D8C1A55348300B87159 /* main.m in Sources */,
+				CC367DBC1A55BCBF00B87159 /* SRGFakableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC367D9B1A55348400B87159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC367DA61A55348400B87159 /* NSDate_SRGFekableTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC367DA11A55348400B87159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC367D851A55348300B87159 /* NSDate+SRGFekable */;
+			targetProxy = CC367DA01A55348400B87159 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CC367D931A55348300B87159 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC367D941A55348300B87159 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CC367D981A55348300B87159 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CC367D991A55348300B87159 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CC367DA71A55348400B87159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC367DA81A55348400B87159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC367DAA1A55348400B87159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "NSDate+SRGFekable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CC367DAB1A55348400B87159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "NSDate+SRGFekable/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CC367DAD1A55348400B87159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NSDate+SRGFekableTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSDate+SRGFekable.app/NSDate+SRGFekable";
+			};
+			name = Debug;
+		};
+		CC367DAE1A55348400B87159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NSDate+SRGFekableTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSDate+SRGFekable.app/NSDate+SRGFekable";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC367D811A55348300B87159 /* Build configuration list for PBXProject "NSDate+SRGFekable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC367DA71A55348400B87159 /* Debug */,
+				CC367DA81A55348400B87159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC367DA91A55348400B87159 /* Build configuration list for PBXNativeTarget "NSDate+SRGFekable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC367DAA1A55348400B87159 /* Debug */,
+				CC367DAB1A55348400B87159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC367DAC1A55348400B87159 /* Build configuration list for PBXNativeTarget "NSDate+SRGFekableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC367DAD1A55348400B87159 /* Debug */,
+				CC367DAE1A55348400B87159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CC367D7E1A55348300B87159 /* Project object */;
+}

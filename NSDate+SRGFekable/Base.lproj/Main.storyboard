@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <scenes>
+        <!--NSDate+SRGFakable-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="NSDate+SRGFakable" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjo-gu-VL8">
+                                <rect key="frame" x="188" y="265" width="225" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbS-Ps-HEy">
+                                        <rect key="frame" x="20" y="20" width="185" height="30"/>
+                                        <state key="normal" title="SRGFakableViewController">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapLaunchFaker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kai-kO-DsJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sbS-Ps-HEy" firstAttribute="leading" secondItem="mjo-gu-VL8" secondAttribute="leading" constant="20" id="2E7-Nm-reK"/>
+                                    <constraint firstAttribute="trailing" secondItem="sbS-Ps-HEy" secondAttribute="trailing" constant="20" id="621-GL-sDo"/>
+                                    <constraint firstAttribute="bottom" secondItem="sbS-Ps-HEy" secondAttribute="bottom" constant="20" id="esA-ZN-RrP"/>
+                                    <constraint firstAttribute="centerY" secondItem="sbS-Ps-HEy" secondAttribute="centerY" id="v7C-NH-iF8"/>
+                                    <constraint firstItem="sbS-Ps-HEy" firstAttribute="top" secondItem="mjo-gu-VL8" secondAttribute="top" constant="20" id="vIG-ad-myN"/>
+                                    <constraint firstAttribute="centerX" secondItem="sbS-Ps-HEy" secondAttribute="centerX" id="zR3-Zc-haG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="mjo-gu-VL8" secondAttribute="centerY" id="Ey9-FZ-8Wy"/>
+                            <constraint firstAttribute="centerX" secondItem="mjo-gu-VL8" secondAttribute="centerX" id="cbe-0v-8Ap"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VC7-Xi-whf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="429" y="216"/>
+        </scene>
+    </scenes>
+</document>

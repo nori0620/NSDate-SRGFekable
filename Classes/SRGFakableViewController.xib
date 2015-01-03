@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SRGFakableViewController">
+            <connections>
+                <outlet property="datePicker" destination="Tj0-Ie-j2w" id="Q5U-H2-c6w"/>
+                <outlet property="dateResultLabel" destination="ge0-Em-Lui" id="xxW-Xe-z8d"/>
+                <outlet property="doFakeButton" destination="NB4-FX-YP4" id="bz4-KE-E5b"/>
+                <outlet property="pickerHeight" destination="Ydk-mw-C9l" id="8pT-YB-Hgf"/>
+                <outlet property="startFakingButton" destination="66H-mm-b64" id="0uk-dR-va2"/>
+                <outlet property="stopFakingButton" destination="RsD-7S-YFm" id="AqC-jM-4x9"/>
+                <outlet property="titleLabel" destination="I5E-G8-0e5" id="cKN-Xw-UX8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtc-DG-FVi">
+                    <rect key="frame" x="156" y="15" width="289" height="264"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result of NSDate.date(faking)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5E-G8-0e5">
+                            <rect key="frame" x="20" y="15" width="249" height="23"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" red="0.32549019610000002" green="0.70980392160000005" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-01-01 17:33:18 +0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge0-Em-Lui">
+                            <rect key="frame" x="30" y="48" width="229" height="22"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tj0-Ie-j2w">
+                            <rect key="frame" x="0.0" y="59" width="289" height="162"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="139" id="Ydk-mw-C9l"/>
+                            </constraints>
+                            <date key="date" timeIntervalSinceReferenceDate="441852300.63648099">
+                                <!--2015-01-02 00:45:00 +0000-->
+                            </date>
+                        </datePicker>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66H-mm-b64">
+                            <rect key="frame" x="6" y="221" width="93" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="Start faking">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didTapStartFakingDate:" destination="-1" eventType="touchUpInside" id="OeE-vd-hoA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsD-7S-YFm">
+                            <rect key="frame" x="196" y="222" width="93" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="Stop faking">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didTapStopFakingDate:" destination="-1" eventType="touchUpInside" id="in8-9O-udl"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB4-FX-YP4">
+                            <rect key="frame" x="107" y="227" width="75" height="34"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <state key="normal" title="Do Fake!">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="didTapDoFake:" destination="-1" eventType="touchUpInside" id="wra-l4-52C"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="centerX" secondItem="ge0-Em-Lui" secondAttribute="centerX" id="7gK-bg-lox"/>
+                        <constraint firstItem="66H-mm-b64" firstAttribute="leading" secondItem="dtc-DG-FVi" secondAttribute="leading" constant="30" id="7yT-MU-oVV"/>
+                        <constraint firstAttribute="centerX" secondItem="NB4-FX-YP4" secondAttribute="centerX" id="9Rw-rx-uaD"/>
+                        <constraint firstAttribute="centerX" secondItem="I5E-G8-0e5" secondAttribute="centerX" id="AEC-w4-uFI"/>
+                        <constraint firstAttribute="trailing" secondItem="RsD-7S-YFm" secondAttribute="trailing" constant="30" id="Bgl-5M-dMn"/>
+                        <constraint firstAttribute="width" secondItem="Tj0-Ie-j2w" secondAttribute="width" id="CPc-GQ-Txs"/>
+                        <constraint firstAttribute="centerX" secondItem="Tj0-Ie-j2w" secondAttribute="centerX" id="DP6-7e-8OJ"/>
+                        <constraint firstItem="I5E-G8-0e5" firstAttribute="top" secondItem="dtc-DG-FVi" secondAttribute="top" constant="15" id="ERo-oc-rKm"/>
+                        <constraint firstItem="RsD-7S-YFm" firstAttribute="top" secondItem="Tj0-Ie-j2w" secondAttribute="bottom" constant="12" id="KJx-Eh-gNO"/>
+                        <constraint firstItem="ge0-Em-Lui" firstAttribute="top" secondItem="I5E-G8-0e5" secondAttribute="bottom" constant="10" id="MNW-3V-hV9"/>
+                        <constraint firstItem="ge0-Em-Lui" firstAttribute="leading" secondItem="dtc-DG-FVi" secondAttribute="leading" constant="30" id="QgF-Pw-Ukh"/>
+                        <constraint firstAttribute="bottom" secondItem="66H-mm-b64" secondAttribute="bottom" constant="8" id="WKY-LY-Pz1"/>
+                        <constraint firstItem="Tj0-Ie-j2w" firstAttribute="top" secondItem="ge0-Em-Lui" secondAttribute="bottom" id="XqA-zA-Y3R"/>
+                        <constraint firstAttribute="bottom" secondItem="NB4-FX-YP4" secondAttribute="bottom" constant="8" id="Zun-9F-y3t"/>
+                        <constraint firstItem="NB4-FX-YP4" firstAttribute="top" secondItem="Tj0-Ie-j2w" secondAttribute="bottom" constant="18" id="cyL-f4-ki7"/>
+                        <constraint firstAttribute="bottom" secondItem="RsD-7S-YFm" secondAttribute="bottom" constant="8" id="gXP-mS-HtX"/>
+                        <constraint firstItem="66H-mm-b64" firstAttribute="top" secondItem="Tj0-Ie-j2w" secondAttribute="bottom" constant="12" id="m7T-7N-SFd"/>
+                        <constraint firstAttribute="trailing" secondItem="ge0-Em-Lui" secondAttribute="trailing" constant="30" id="qNE-db-63a"/>
+                        <constraint firstAttribute="width" constant="289" id="zoA-zg-zpy"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dtc-DG-FVi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="1xH-de-px9"/>
+                <constraint firstAttribute="centerX" secondItem="dtc-DG-FVi" secondAttribute="centerX" id="a3z-7a-Ui4"/>
+                <constraint firstAttribute="centerX" secondItem="dtc-DG-FVi" secondAttribute="centerX" id="sqb-cu-I95"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="101"/>
+        </view>
+    </objects>
+</document>
