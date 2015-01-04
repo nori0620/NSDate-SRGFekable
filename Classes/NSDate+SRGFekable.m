@@ -169,12 +169,4 @@ static BOOL doFreeze = NO;
     return [formatter dateFromString:dateString];
 }
 
-+ (id) p_forceRetain:(id)instance {
-    SEL selector = NSSelectorFromString(@"retain");
-    IMP imp = [instance methodForSelector:selector];
-    void (*func)(id, SEL) = (void *)imp;
-    func(instance, selector);
-    return instance;
-}
-
 @end
