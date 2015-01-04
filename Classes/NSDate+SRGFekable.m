@@ -18,7 +18,6 @@
                                         new:(SEL)new;
 +(NSDate *) p_dateFromString:(NSString *)dateString
                     timeZone:(NSTimeZone *)timeZone;
-+(id) p_forceRetain:(id)instance ;
 @end
 
 #pragma mark - Public methods
@@ -102,26 +101,6 @@ static BOOL doFreeze = NO;
     return [self p_swizzledDateWithTimeIntervalSinceNow:secs];
 }
 
-- (instancetype) p_swizzledInit {
-    NSDate *faked = [[self class] p_reloadFakedNow];
-    if( faked ){
-        /* In init method, we return onother instance!  So we need to force retain this instance(fakedNow) */
-        NSDate *instance = [self initWithTimeInterval:0 sinceDate:faked];
-        return [[self class] p_forceRetain:instance];
-    }
-    return [self p_swizzledInit];
-}
-
-- (instancetype) p_swizzledInitWithTimeIntervalSinceNow:(NSTimeInterval)secs {
-    NSDate *faked = [[self class] p_reloadFakedNow];
-    if( faked ){
-        /* In init method, we return onother instance!  So we need to force retain this instance(fakedNow) */
-        NSDate *instance = [self initWithTimeInterval:secs sinceDate:faked];
-        return [[self class] p_forceRetain:instance];
-    }
-    return [self p_swizzledInitWithTimeIntervalSinceNow:secs];
-}
-
 - (NSTimeInterval) p_swizzledTimeIntervalSinceNow {
     NSDate *faked = [[self class] p_reloadFakedNow];
     if( faked ){
@@ -148,17 +127,6 @@ static BOOL doFreeze = NO;
     /* sizzle instance methods */ {
         [self p_swizzleInstanceMethodWithOriginal:@selector(timeIntervalSinceNow)
                                            new:@selector(p_swizzledTimeIntervalSinceNow)
-        ];
-        [self p_swizzleInstanceMethodWithOriginal:@selector(initWithTimeIntervalSinceNow:)
-                                           new:@selector(p_swizzledInitWithTimeIntervalSinceNow:)
-        ];
-         
-         
-        /*  NSDate is ClassCluster. So we need to swizzle  __NSPlaceholderDate#init to swizzle real init implemetion
-         * see alos: http://stackoverflow.com/questions/27152287/stub-nsdate-init/27152985#27152985 */
-        [self p_swizzleInstanceMethodWithOriginal:@selector(init)
-                                           new:@selector(p_swizzledInit)
-                                    originalClass:NSClassFromString(@"__NSPlaceholderDate")
         ];
     }
     
