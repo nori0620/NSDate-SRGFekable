@@ -85,7 +85,9 @@
 }
 
 - (IBAction)didTapDoFake:(id)sender {
-    [NSDate srg_fakeWithDate: _datePicker.date ];
+    [NSDate srg_fakeWithDate: _datePicker.date
+                      freeze:NO
+     ];
     [self updateLabels];
     [self updateButtonEnability];
     self.doSelectiongDate = NO;

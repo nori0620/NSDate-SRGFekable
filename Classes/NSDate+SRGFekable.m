@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 
 @interface NSDate (SRGFakable_Private)
++ (NSDate *) p_reloadFakedNow ;
 +(void) p_swizzleMethods ;
 +(void) p_swizzleClassMethodWithOriginal:(SEL)original
                                      new:(SEL)new;
@@ -25,7 +26,9 @@
 @implementation NSDate (SRGFakable)
 
 static NSDate *fakedNow = nil;
+static NSTimeInterval fakeDiff = 0;
 static BOOL isSwizzledDateMehtods = NO;
+static BOOL doFreeze = NO;
 
 
 + (BOOL)srg_doFaking{
@@ -36,23 +39,35 @@ static BOOL isSwizzledDateMehtods = NO;
     fakedNow = nil;
 }
 
-+ (void)srg_fakeWithDate:(NSDate *)date {
++ (void)srg_fakeWithDate:(NSDate *)date
+                  freeze:(BOOL)freeze
+{
     fakedNow = date;
+    doFreeze  = freeze;
+    fakeDiff  = [[NSDate date] timeIntervalSinceDate:fakedNow];
     [self p_swizzleMethods];
 }
 
 + (void)srg_fakeWithString:(NSString *)dateString
                   timeZone:(NSTimeZone *)timeZone
+                  freeze:(BOOL)freeze
 {
-    fakedNow = [[self class] p_dateFromString:dateString
+    NSDate *date = [[self class] p_dateFromString:dateString
                                      timeZone:timeZone ];
-    [self p_swizzleMethods];
+    [self srg_fakeWithDate:date
+                    freeze:freeze
+     ];
 }
 
-+ (void)srg_fakeWithString:(NSString *)dateString{
++ (void)srg_fakeWithString:(NSString *)dateString
+                  freeze:(BOOL)freeze
+{
     return [[self class] srg_fakeWithString:dateString
-                                   timeZone:[NSTimeZone systemTimeZone]];
+                                   timeZone:[NSTimeZone systemTimeZone]
+                                     freeze:freeze
+            ];
 }
+
 
 @end
 
@@ -61,41 +76,56 @@ static BOOL isSwizzledDateMehtods = NO;
 
 @implementation NSDate (SRGFakable_Private)
 
+#pragma mark _fakedNew getter/setter
+
++ (NSDate *) p_reloadFakedNow {
+    if( !fakedNow ){ return nil; }
+    if( doFreeze ){ return fakedNow; }
+   
+    NSTimeInterval latestDiff = [[NSDate p_swizzledDate] timeIntervalSinceDate:fakedNow];
+    return [fakedNow dateByAddingTimeInterval: latestDiff - fakeDiff ];
+}
+
 #pragma mark Swizzing Targets
 
 + (instancetype) p_swizzledDate {
-    if( fakedNow ){ return  fakedNow; }
+    NSDate *faked = [[self class] p_reloadFakedNow];
+    if( faked ){ return  faked; }
     return [self p_swizzledDate];
 }
 
 + (instancetype) p_swizzledDateWithTimeIntervalSinceNow:(NSTimeInterval)secs{
-    if( fakedNow ){
-        return [NSDate dateWithTimeInterval:secs sinceDate:fakedNow];
+    NSDate *faked = [[self class] p_reloadFakedNow];
+    if( faked ){
+        return [NSDate dateWithTimeInterval:secs sinceDate:faked];
     }
     return [self p_swizzledDateWithTimeIntervalSinceNow:secs];
 }
 
 - (instancetype) p_swizzledInit {
-    if( fakedNow ){
+    NSDate *faked = [[self class] p_reloadFakedNow];
+    if( faked ){
         /* In init method, we return onother instance!  So we need to force retain this instance(fakedNow) */
-        NSDate *instance = [self initWithTimeInterval:0 sinceDate:fakedNow];
+        NSDate *instance = [self initWithTimeInterval:0 sinceDate:faked];
         return [[self class] p_forceRetain:instance];
     }
     return [self p_swizzledInit];
 }
 
 - (instancetype) p_swizzledInitWithTimeIntervalSinceNow:(NSTimeInterval)secs {
-    if( fakedNow ){
+    NSDate *faked = [[self class] p_reloadFakedNow];
+    if( faked ){
         /* In init method, we return onother instance!  So we need to force retain this instance(fakedNow) */
-        NSDate *instance = [self initWithTimeInterval:secs sinceDate:fakedNow];
+        NSDate *instance = [self initWithTimeInterval:secs sinceDate:faked];
         return [[self class] p_forceRetain:instance];
     }
     return [self p_swizzledInitWithTimeIntervalSinceNow:secs];
 }
 
 - (NSTimeInterval) p_swizzledTimeIntervalSinceNow {
-    if( fakedNow ){
-        return [ self timeIntervalSinceDate:fakedNow];
+    NSDate *faked = [[self class] p_reloadFakedNow];
+    if( faked ){
+        return [ self timeIntervalSinceDate:faked];
     }
     return [self p_swizzledTimeIntervalSinceNow];
 }
@@ -122,6 +152,8 @@ static BOOL isSwizzledDateMehtods = NO;
         [self p_swizzleInstanceMethodWithOriginal:@selector(initWithTimeIntervalSinceNow:)
                                            new:@selector(p_swizzledInitWithTimeIntervalSinceNow:)
         ];
+         
+         
         /*  NSDate is ClassCluster. So we need to swizzle  __NSPlaceholderDate#init to swizzle real init implemetion
          * see alos: http://stackoverflow.com/questions/27152287/stub-nsdate-init/27152985#27152985 */
         [self p_swizzleInstanceMethodWithOriginal:@selector(init)
@@ -129,7 +161,6 @@ static BOOL isSwizzledDateMehtods = NO;
                                     originalClass:NSClassFromString(@"__NSPlaceholderDate")
         ];
     }
-    
     
     
     isSwizzledDateMehtods = YES;

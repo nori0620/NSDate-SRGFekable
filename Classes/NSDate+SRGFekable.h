@@ -12,10 +12,15 @@
 
 + (BOOL) srg_doFaking;
 + (void) srg_stopFaking;
-+ (void) srg_fakeWithDate:(NSDate *)date;
-+ (void) srg_fakeWithString:(NSString *)dateString;
++ (void) srg_fakeWithDate:(NSDate *)date
+                   freeze:(BOOL)freeze
+;
 + (void) srg_fakeWithString:(NSString *)dateString
-                   timeZone:(NSTimeZone *)timeZone;
+                     freeze:(BOOL)freeze
+;
++ (void) srg_fakeWithString:(NSString *)dateString
+                   timeZone:(NSTimeZone *)timeZone
+                     freeze:(BOOL)freeze
 ;
 
 @end

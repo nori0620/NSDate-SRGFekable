@@ -29,7 +29,9 @@
     NSDate *realDate = [NSDate date];
     XCTAssertFalse([NSDate srg_doFaking]);
     
-    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]];
+    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
+                      freeze:YES
+     ];
     NSDate *fakedDate = [NSDate date];
     XCTAssertTrue([NSDate srg_doFaking]);
     
@@ -45,7 +47,9 @@
 - (void)testInit {
     NSDate *realDate = [[NSDate alloc] init];
     
-    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]];
+    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
+                      freeze:YES
+     ];
     
     NSDate *fakedDate = [[NSDate alloc] init];
     
@@ -60,7 +64,9 @@
 - (void)testNew {
     NSDate *realDate = [NSDate new];
     
-    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]];
+    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
+                      freeze:YES
+     ];
     
     NSDate *fakedDate = [NSDate new];
     
@@ -80,6 +86,7 @@
     
     [NSDate srg_fakeWithDate:
         [NSDate dateWithTimeIntervalSinceNow:100]
+                      freeze:YES
     ];
     
     NSDate *fakedDate = [NSDate dateWithTimeIntervalSinceNow:300];
@@ -94,8 +101,8 @@
 - (void) testInitWithTimeIntervalSinceNow {
     NSDate *realDate = [[NSDate alloc] initWithTimeIntervalSinceNow:300];
     
-    [NSDate srg_fakeWithDate:
-        [NSDate dateWithTimeIntervalSinceNow:100]
+    [NSDate srg_fakeWithDate: [NSDate dateWithTimeIntervalSinceNow:100]
+                      freeze:YES
     ];
     
     NSDate *fakedDate = [[NSDate alloc] initWithTimeIntervalSinceNow:300];
@@ -113,8 +120,8 @@
     
     NSTimeInterval realInterval = [aDate timeIntervalSinceNow];
     
-    [NSDate srg_fakeWithDate:
-        [NSDate dateWithTimeIntervalSinceNow:-100]
+    [NSDate srg_fakeWithDate: [NSDate dateWithTimeIntervalSinceNow:-100]
+                      freeze:YES
     ];
     
     NSTimeInterval fakeInterval = [aDate timeIntervalSinceNow];
@@ -133,6 +140,7 @@
     
     [NSDate srg_fakeWithString:@"2014/01/05 11:32:00"
                       timeZone:[NSTimeZone timeZoneWithName:@"Asia/Tokyo"]
+                        freeze:YES
     ];
     NSTimeInterval intervalSince1970 = [[NSDate date] timeIntervalSince1970];
     XCTAssertEqual(intervalSince1970, 1388889120 );
