@@ -30,15 +30,15 @@ static BOOL isSwizzledDateMehtods = NO;
 static BOOL doFreeze = NO;
 
 
-+ (BOOL)srg_doFaking{
++ (BOOL)doFaking{
     return  !!fakedNow;
 }
 
-+ (void)srg_stopFaking {
++ (void)stopFaking {
     fakedNow = nil;
 }
 
-+ (void)srg_fakeWithDate:(NSDate *)date
++ (void)fakeWithDate:(NSDate *)date
                   freeze:(BOOL)freeze
 {
     fakedNow = date;
@@ -47,21 +47,21 @@ static BOOL doFreeze = NO;
     [self p_swizzleMethods];
 }
 
-+ (void)srg_fakeWithString:(NSString *)dateString
++ (void)fakeWithString:(NSString *)dateString
                   timeZone:(NSTimeZone *)timeZone
                   freeze:(BOOL)freeze
 {
     NSDate *date = [[self class] p_dateFromString:dateString
                                      timeZone:timeZone ];
-    [self srg_fakeWithDate:date
+    [self fakeWithDate:date
                     freeze:freeze
      ];
 }
 
-+ (void)srg_fakeWithString:(NSString *)dateString
++ (void)fakeWithString:(NSString *)dateString
                   freeze:(BOOL)freeze
 {
-    return [[self class] srg_fakeWithString:dateString
+    return [[self class] fakeWithString:dateString
                                    timeZone:[NSTimeZone systemTimeZone]
                                      freeze:freeze
             ];

@@ -79,13 +79,13 @@
 }
 
 - (IBAction)didTapStopFakingDate:(id)sender {
-    [NSDate srg_stopFaking];
+    [NSDate stopFaking];
     [self updateLabels];
     [self updateButtonEnability];
 }
 
 - (IBAction)didTapDoFake:(id)sender {
-    [NSDate srg_fakeWithDate: _datePicker.date
+    [NSDate fakeWithDate: _datePicker.date
                       freeze:NO
      ];
     [self updateLabels];
@@ -109,10 +109,10 @@
 
 - (void) updateLabels{
     self.dateResultLabel.text = [self stringFromDate:[NSDate date]];
-    self.titleLabel.text = [NSDate srg_doFaking]
+    self.titleLabel.text = [NSDate doFaking]
         ? @"Result of NSDate.date(!Faking!)"
         : @"Result of NSDate.date(original)";
-    self.titleLabel.textColor = [NSDate srg_doFaking]
+    self.titleLabel.textColor = [NSDate doFaking]
         ? [UIColor redColor]
         : [UIColor colorWithRed:83.0f/255.0f
                           green:181.0f/255.0f
@@ -121,8 +121,8 @@
 }
 
 - (void) updateButtonEnability {
-    self.stopFakingButton.enabled  = [NSDate srg_doFaking];
-    self.startFakingButton.enabled = ![NSDate srg_doFaking];
+    self.stopFakingButton.enabled  = [NSDate doFaking];
+    self.startFakingButton.enabled = ![NSDate doFaking];
 }
 
 

@@ -10,15 +10,15 @@
 
 @interface NSDate (SRGFakable)
 
-+ (BOOL) srg_doFaking;
-+ (void) srg_stopFaking;
-+ (void) srg_fakeWithDate:(NSDate *)date
++ (BOOL) doFaking;
++ (void) stopFaking;
++ (void) fakeWithDate:(NSDate *)date
                    freeze:(BOOL)freeze
 ;
-+ (void) srg_fakeWithString:(NSString *)dateString
++ (void) fakeWithString:(NSString *)dateString
                      freeze:(BOOL)freeze
 ;
-+ (void) srg_fakeWithString:(NSString *)dateString
++ (void) fakeWithString:(NSString *)dateString
                    timeZone:(NSTimeZone *)timeZone
                      freeze:(BOOL)freeze
 ;

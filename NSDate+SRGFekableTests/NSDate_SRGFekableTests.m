@@ -17,7 +17,7 @@
 @implementation NSDate_SRGFekableTests
 
 - (void)setUp {
-    [NSDate srg_stopFaking];
+    [NSDate stopFaking];
     [super setUp];
 }
 
@@ -27,20 +27,20 @@
 
 - (void)testDate {
     NSDate *realDate = [NSDate date];
-    XCTAssertFalse([NSDate srg_doFaking]);
+    XCTAssertFalse([NSDate doFaking]);
     
-    [NSDate srg_fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
                       freeze:YES
      ];
     NSDate *fakedDate = [NSDate date];
-    XCTAssertTrue([NSDate srg_doFaking]);
+    XCTAssertTrue([NSDate doFaking]);
     
     XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
-    XCTAssertTrue([NSDate srg_doFaking]);
+    XCTAssertTrue([NSDate doFaking]);
     
-    [NSDate srg_stopFaking];
+    [NSDate stopFaking];
     NSDate *realDate2 = [NSDate date];
-    XCTAssertFalse([NSDate srg_doFaking]);
+    XCTAssertFalse([NSDate doFaking]);
     XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
 }
 
@@ -48,7 +48,7 @@
     
     NSDate *realDate = [NSDate dateWithTimeIntervalSinceNow:300];
     
-    [NSDate srg_fakeWithDate:
+    [NSDate fakeWithDate:
         [NSDate dateWithTimeIntervalSinceNow:100]
                       freeze:YES
     ];
@@ -56,7 +56,7 @@
     NSDate *fakedDate = [NSDate dateWithTimeIntervalSinceNow:300];
     XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
     
-    [NSDate srg_stopFaking];
+    [NSDate stopFaking];
     NSDate *realDate2 = [NSDate dateWithTimeIntervalSinceNow:300];
     XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
     
@@ -68,7 +68,7 @@
     
     NSTimeInterval realInterval = [aDate timeIntervalSinceNow];
     
-    [NSDate srg_fakeWithDate: [NSDate dateWithTimeIntervalSinceNow:-100]
+    [NSDate fakeWithDate: [NSDate dateWithTimeIntervalSinceNow:-100]
                       freeze:YES
     ];
     
@@ -78,7 +78,7 @@
     BOOL expected =  diff >= 99.0 && diff <= 100.0;
     XCTAssertTrue( expected  );
     
-    [NSDate srg_stopFaking];
+    [NSDate stopFaking];
     NSTimeInterval realInterval2 = [aDate timeIntervalSinceNow];
     XCTAssertEqual( (int)realInterval2 - (int)realInterval,0);
     
@@ -86,7 +86,7 @@
 
 - (void) testFakeWithString{
     
-    [NSDate srg_fakeWithString:@"2014/01/05 11:32:00"
+    [NSDate fakeWithString:@"2014/01/05 11:32:00"
                       timeZone:[NSTimeZone timeZoneWithName:@"Asia/Tokyo"]
                         freeze:YES
     ];
