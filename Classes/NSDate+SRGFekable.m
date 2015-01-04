@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 
 @interface NSDate (SRGFakable_Private)
++ (instancetype) p_swizzledDate ;
 + (NSDate *) p_reloadFakedNow ;
 +(void) p_swizzleMethods ;
 +(void) p_swizzleClassMethodWithOriginal:(SEL)original
@@ -41,10 +42,10 @@ static BOOL doFreeze = NO;
 + (void)fakeWithDate:(NSDate *)date
                   freeze:(BOOL)freeze
 {
-    fakedNow = date;
+    fakedNow  = date;
     doFreeze  = freeze;
-    fakeDiff  = [[NSDate date] timeIntervalSinceDate:fakedNow];
     [self p_swizzleMethods];
+    fakeDiff  = [[[self class] p_swizzledDate] timeIntervalSinceDate:fakedNow];
 }
 
 + (void)fakeWithString:(NSString *)dateString
@@ -63,8 +64,7 @@ static BOOL doFreeze = NO;
 {
     return [[self class] fakeWithString:dateString
                                    timeZone:[NSTimeZone systemTimeZone]
-                                     freeze:freeze
-            ];
+                                     freeze:freeze];
 }
 
 
@@ -74,8 +74,6 @@ static BOOL doFreeze = NO;
 #pragma mark - Private methods
 
 @implementation NSDate (SRGFakable_Private)
-
-#pragma mark _fakedNew getter/setter
 
 + (NSDate *) p_reloadFakedNow {
     if( !fakedNow ){ return nil; }
@@ -108,7 +106,6 @@ static BOOL doFreeze = NO;
     }
     return [self p_swizzledTimeIntervalSinceNow];
 }
-
 
 #pragma mark Execute Swizzing
 
