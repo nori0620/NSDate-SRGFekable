@@ -11,6 +11,7 @@
 
 @interface SRGFakableViewController ()
 
+@property BOOL freezeOnFake;
 @property NSTimer *timer;
 @property (nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic) IBOutlet UILabel *titleLabel;
@@ -25,10 +26,13 @@
 
 @implementation SRGFakableViewController
 
-+ (void)showOn:(UIViewController *)below{
++ (void)showOn:(UIViewController *)below
+  freezeOnFake:(BOOL)freezeOnFake
+{
     SRGFakableViewController *controller = [[[self class] alloc] initWithNibName:NSStringFromClass([self class])
                                             
                                                                           bundle:nil];
+    controller.freezeOnFake = freezeOnFake;
     UINavigationController *navigationController = [UINavigationController new];
     [navigationController pushViewController:controller animated:NO];
     [below presentViewController:navigationController
@@ -86,7 +90,7 @@
 
 - (IBAction)didTapDoFake:(id)sender {
     [NSDate fakeWithDate: _datePicker.date
-                      freeze:NO
+                  freeze: self.freezeOnFake
      ];
     [self updateLabels];
     [self updateButtonEnability];

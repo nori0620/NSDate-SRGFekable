@@ -10,6 +10,7 @@
 
 @interface SRGFakableViewController : UIViewController
 
-+ (void) showOn:(UIViewController *)below;
++ (void) showOn:(UIViewController *)below
+   freezeOnFake:(BOOL)freezeOnFake;
 
 @end

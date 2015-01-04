@@ -46,7 +46,9 @@
 }
 
 - (IBAction)didTapLaunchFaker:(id)sender {
-    [SRGFakableViewController showOn:self];
+    [SRGFakableViewController showOn:self
+                        freezeOnFake:NO
+    ];
 }
 
 - (void) p_updateDateLabel {
