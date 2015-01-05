@@ -10,6 +10,7 @@
 
 @interface NSDate (SRGFakable)
 
++ (instancetype) now;
 + (BOOL) doFaking;
 + (void) stopFaking;
 + (void) fakeWithDate:(NSDate *)date

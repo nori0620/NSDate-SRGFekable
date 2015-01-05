@@ -30,6 +30,9 @@ static NSTimeInterval fakeDiff = 0;
 static BOOL isSwizzledDateMehtods = NO;
 static BOOL doFreeze = NO;
 
++ (instancetype)now {
+    return [[self class] date];
+}
 
 + (BOOL)doFaking{
     return  !!fakedNow;
