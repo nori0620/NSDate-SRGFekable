@@ -46,7 +46,7 @@ By using this category , you can write unit tests easily.
 ...
 ````
 
-## More methods
+## All methods
 
 ### fakeWithDate
 
@@ -74,7 +74,7 @@ NSDate *aDate = [NSDate dateWithTimeIntervalSinceNow:100];
 [NSDate fakeWithDelta:-30];
 ````
 
-### Stop faking
+### Stop stopFaking
 
 ```objc
 //  You can stop faking.
