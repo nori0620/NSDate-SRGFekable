@@ -23,6 +23,9 @@
 ;
 + (void) fakeWithString:(NSString *)dateString
                    timeZone:(NSTimeZone *)timeZone
+;
++ (void) fakeWithString:(NSString *)dateString
+                   timeZone:(NSTimeZone *)timeZone
                      freeze:(BOOL)freeze
 ;
 + (void) fakeWithDelta:(NSTimeInterval)delta;

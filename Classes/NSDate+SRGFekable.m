@@ -63,6 +63,14 @@ static BOOL doFreeze = NO;
 }
 
 + (void)fakeWithString:(NSString *)dateString
+                  timeZone:(NSTimeZone *)timeZone
+{
+    return [[self class] fakeWithString:dateString
+                                   timeZone:[NSTimeZone systemTimeZone]
+                                     freeze:YES];
+}
+
++ (void)fakeWithString:(NSString *)dateString
                   freeze:(BOOL)freeze
 {
     return [[self class] fakeWithString:dateString
