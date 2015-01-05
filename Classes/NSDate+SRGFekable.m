@@ -124,6 +124,21 @@ static BOOL doFreeze = NO;
     return [self p_swizzledDateWithTimeIntervalSinceNow:secs];
 }
 
+- (id) p_swizzledInit {
+    if( [NSDate doFaking] ){
+        return [[NSDate alloc]  p_swizzledInitWithTimeIntervalSinceNow:-fakeDiff];
+    }
+    return [self p_swizzledInit];
+}
+
+- (id) p_swizzledInitWithTimeIntervalSinceNow:(NSTimeInterval)secs {
+    NSDate *faked = [[self class] p_reloadFakedNow];
+    if( faked ){
+        return [self p_swizzledInitWithTimeIntervalSinceNow:secs - fakeDiff];
+    }
+    return [self p_swizzledInitWithTimeIntervalSinceNow:secs];
+}
+
 - (NSTimeInterval) p_swizzledTimeIntervalSinceNow {
     NSDate *faked = [[self class] p_reloadFakedNow];
     if( faked ){
@@ -149,6 +164,14 @@ static BOOL doFreeze = NO;
     /* sizzle instance methods */ {
         [self p_swizzleInstanceMethodWithOriginal:@selector(timeIntervalSinceNow)
                                            new:@selector(p_swizzledTimeIntervalSinceNow)
+        ];
+        [self p_swizzleInstanceMethodWithOriginal:@selector(init)
+                                           new:@selector(p_swizzledInit)
+         originalClass:NSClassFromString(@"__NSPlaceholderDate")
+        ];
+        [self p_swizzleInstanceMethodWithOriginal:@selector(initWithTimeIntervalSinceNow:)
+                                              new:@selector(p_swizzledInitWithTimeIntervalSinceNow:)
+         originalClass:NSClassFromString(@"__NSPlaceholderDate")
         ];
     }
     

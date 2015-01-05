@@ -42,6 +42,40 @@
     XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
 }
 
+- (void)testInit{
+    NSDate *realDate = [[NSDate alloc] init];
+    
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
+                      freeze:YES
+     ];
+    NSDate *fakedDate =  [[NSDate alloc] init];
+    
+    XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
+    
+    [NSDate stopFaking];
+    NSDate *realDate2 = [[NSDate alloc] init];
+    XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
+}
+
+- (void)testInitWithTimeIntervalSinceNow{
+    
+    NSDate *realDate = [NSDate new];
+    NSDate *realDate60 = [[NSDate alloc] initWithTimeIntervalSinceNow:60];
+    NSTimeInterval realDiff = [realDate60 timeIntervalSinceDate:realDate];
+    
+    [NSDate fakeWithString:@"2014/11/11 11:11:11"];
+    
+    NSDate *fakeDate = [NSDate date];
+    NSDate *fakeDate60 = [[NSDate alloc] initWithTimeIntervalSinceNow:60];
+    NSTimeInterval fakeDiff = [fakeDate60 timeIntervalSinceDate:fakeDate];
+    
+    XCTAssertEqual(
+        (int)realDiff,
+        (int)fakeDiff
+    );
+   
+}
+
 - (void)testNow {
     NSDate *realDate = [NSDate now];
     
