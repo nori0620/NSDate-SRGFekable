@@ -13,6 +13,7 @@
 + (instancetype) now;
 + (BOOL) doFaking;
 + (void) stopFaking;
++ (void) fakeWithDate:(NSDate *)date;
 + (void) fakeWithDate:(NSDate *)date
                    freeze:(BOOL)freeze
 ;
@@ -22,6 +23,10 @@
 + (void) fakeWithString:(NSString *)dateString
                    timeZone:(NSTimeZone *)timeZone
                      freeze:(BOOL)freeze
+;
++ (void) fakeWithDelta:(NSTimeInterval)delta;
++ (void) fakeWithDelta:(NSTimeInterval)delta
+                freeze:(BOOL)freeze
 ;
 
 @end

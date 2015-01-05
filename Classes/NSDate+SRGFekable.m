@@ -11,12 +11,7 @@
 
 @interface NSDate (SRGFakable_Private)
 + (instancetype) p_swizzledDate ;
-+ (NSDate *) p_reloadFakedNow ;
 +(void) p_swizzleMethods ;
-+(void) p_swizzleClassMethodWithOriginal:(SEL)original
-                                     new:(SEL)new;
-+(void) p_swizzleInstanceMethodWithOriginal:(SEL)original
-                                        new:(SEL)new;
 +(NSDate *) p_dateFromString:(NSString *)dateString
                     timeZone:(NSTimeZone *)timeZone;
 @end
@@ -42,6 +37,11 @@ static BOOL doFreeze = NO;
     fakedNow = nil;
 }
 
+
++ (void)fakeWithDate:(NSDate *)date {
+    return[self fakeWithDate:date freeze:YES];
+}
+
 + (void)fakeWithDate:(NSDate *)date
                   freeze:(BOOL)freeze
 {
@@ -58,7 +58,7 @@ static BOOL doFreeze = NO;
     NSDate *date = [[self class] p_dateFromString:dateString
                                      timeZone:timeZone ];
     [self fakeWithDate:date
-                    freeze:freeze
+                freeze:freeze
      ];
 }
 
@@ -70,6 +70,15 @@ static BOOL doFreeze = NO;
                                      freeze:freeze];
 }
 
++ (void)fakeWithDelta:(NSTimeInterval)delta {
+    return [self fakeWithDelta:delta freeze:YES];
+}
+
++ (void)fakeWithDelta:(NSTimeInterval)delta
+               freeze:(BOOL)freeze {
+    [self fakeWithDate:[[NSDate date] dateByAddingTimeInterval:delta]
+                freeze:freeze];
+}
 
 @end
 

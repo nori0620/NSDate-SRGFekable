@@ -29,9 +29,7 @@
     NSDate *realDate = [NSDate date];
     XCTAssertFalse([NSDate doFaking]);
     
-    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
-                      freeze:YES
-     ];
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100] ];
     NSDate *fakedDate = [NSDate date];
     XCTAssertTrue([NSDate doFaking]);
     
@@ -108,6 +106,29 @@
     ];
     NSTimeInterval intervalSince1970 = [[NSDate date] timeIntervalSince1970];
     XCTAssertEqual(intervalSince1970, 1388889120 );
+    
+}
+
+- (void) testFakeWithDelta {
+    NSDate *realDate = [NSDate date];
+    
+    [NSDate fakeWithDelta:60];
+    
+    NSDate *fakedDate = [NSDate date];
+    XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],60);
+    
+    [NSDate fakeWithDelta:120];
+    NSDate *fakedDate2 = [NSDate date];
+    
+    XCTAssertEqual((int)[fakedDate2 timeIntervalSinceDate:realDate],180);
+    
+    [NSDate fakeWithDelta:-60];
+    NSDate *fakedDate3 = [NSDate date];
+    XCTAssertEqual((int)[fakedDate3 timeIntervalSinceDate:realDate],120);
+    
+    [NSDate stopFaking];
+    NSDate *realDate2 = [NSDate date];
+    XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
     
 }
  
