@@ -70,6 +70,11 @@ static BOOL doFreeze = NO;
                                      freeze:freeze];
 }
 
++ (void)fakeWithString:(NSString *)dateString {
+    return [self fakeWithString:dateString freeze:YES];
+}
+
+
 + (void)fakeWithDelta:(NSTimeInterval)delta {
     return [self fakeWithDelta:delta freeze:YES];
 }

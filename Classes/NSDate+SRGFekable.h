@@ -17,6 +17,7 @@
 + (void) fakeWithDate:(NSDate *)date
                    freeze:(BOOL)freeze
 ;
++ (void) fakeWithString:(NSString *)dateString;
 + (void) fakeWithString:(NSString *)dateString
                      freeze:(BOOL)freeze
 ;
