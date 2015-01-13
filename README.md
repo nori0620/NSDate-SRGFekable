@@ -1,6 +1,12 @@
 NSDate+SRGFekable
 ===========
 
+
+[![CI Status](http://img.shields.io/travis/soragoto/NSDate-SRGFekable.svg?style=flat)](https://travis-ci.org/soragoto/NSDate-SRGFekable)
+[![Version](https://img.shields.io/cocoapods/v/NSDate+SRGFekable.svg?style=flat)](https://github.com/soragoto/NSDate-SRGFekable)
+[![License](https://img.shields.io/cocoapods/l/NSDate+SRGFekable.svg?style=flat)](https://github.com/soragoto/NSDate-SRGFekable)
+[![Platform](https://img.shields.io/cocoapods/p/NSDate+SRGFekable.svg?style=flat)](https://github.com/soragoto/NSDate-SRGFekable)
+
 NSDate+SRGFekable is a category to fake results of NSDate. You can test your app features that depend on date more easily.
 
 ## Installation
@@ -103,3 +109,7 @@ This option may be useful when you fake date on Main Project(not Test Project) f
 [NSDate fakeWithString:@"2014/12/27 10:00:00" freeze:NO];
    // ->  If elapsed 10 seconds after call above, [NSDate date] returns @"2014/12/27 10:00:10"
 ````
+
+## LICENSE
+
+NSDate+SRGFekable is released under the MIT license. See LICENSE for details.
