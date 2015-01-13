@@ -14,7 +14,7 @@ NSDate+SRGFekable is a category to fake results of NSDate. You can test your app
 Add the following line to your podfile and run `pod update`.
 
 ```ruby
-pod  'NSDate+SRGFekable', :git => 'https://github.com/soragoto/NSDate-SRGFekable.git', :tag => '0.0.1'
+pod  'NSDate+SRGFekable'
 ```
 
 ## Usage
