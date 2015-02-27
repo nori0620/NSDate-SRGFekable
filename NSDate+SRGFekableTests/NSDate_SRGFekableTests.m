@@ -132,7 +132,17 @@
     
 }
 
-- (void) testFakeWithString{
+- (void) testFakeWithStringAndTimeZone{
+    
+    [NSDate fakeWithString:@"2014/01/05 11:32:00"
+                  timeZone:[NSTimeZone timeZoneWithName:@"Asia/Tokyo"]
+     ];
+    NSTimeInterval intervalSince1970 = [[NSDate date] timeIntervalSince1970];
+    XCTAssertEqual(intervalSince1970, 1388889120 );
+    
+}
+
+- (void) testFakeWithStringTimeZoneAndFreeze{
     
     [NSDate fakeWithString:@"2014/01/05 11:32:00"
                       timeZone:[NSTimeZone timeZoneWithName:@"Asia/Tokyo"]
