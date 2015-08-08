@@ -124,19 +124,22 @@ static BOOL doFreeze = NO;
     return [self p_swizzledDateWithTimeIntervalSinceNow:secs];
 }
 
-- (id) p_swizzledInit {
+- (id)init_swizzled {
     if( [NSDate doFaking] ){
-        return [[NSDate alloc]  p_swizzledInitWithTimeIntervalSinceNow:-fakeDiff];
+        NSDate *faked = [[self class] p_reloadFakedNow];
+        self = [self initWithTimeIntervalSinceReferenceDate:faked.timeIntervalSinceReferenceDate];
+        return self;
     }
-    return [self p_swizzledInit];
+    return [self init_swizzled];
 }
 
-- (id) p_swizzledInitWithTimeIntervalSinceNow:(NSTimeInterval)secs {
-    NSDate *faked = [[self class] p_reloadFakedNow];
-    if( faked ){
-        return [self p_swizzledInitWithTimeIntervalSinceNow:secs - fakeDiff];
+- (id) initWithTimeIntervalSinceNow_swizzled:(NSTimeInterval)secs {
+    if( [NSDate doFaking] ){
+        NSDate *faked = [[self class] p_reloadFakedNow];
+        self = [self initWithTimeIntervalSinceReferenceDate:faked.timeIntervalSinceReferenceDate+secs];
+        return self;
     }
-    return [self p_swizzledInitWithTimeIntervalSinceNow:secs];
+    return [self initWithTimeIntervalSinceNow_swizzled:secs];
 }
 
 - (NSTimeInterval) p_swizzledTimeIntervalSinceNow {
@@ -166,11 +169,11 @@ static BOOL doFreeze = NO;
                                            new:@selector(p_swizzledTimeIntervalSinceNow)
         ];
         [self p_swizzleInstanceMethodWithOriginal:@selector(init)
-                                           new:@selector(p_swizzledInit)
+                                           new:@selector(init_swizzled)
          originalClass:NSClassFromString(@"__NSPlaceholderDate")
         ];
         [self p_swizzleInstanceMethodWithOriginal:@selector(initWithTimeIntervalSinceNow:)
-                                              new:@selector(p_swizzledInitWithTimeIntervalSinceNow:)
+                                              new:@selector(initWithTimeIntervalSinceNow_swizzled:)
          originalClass:NSClassFromString(@"__NSPlaceholderDate")
         ];
     }

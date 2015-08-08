@@ -30,65 +30,61 @@
     XCTAssertFalse([NSDate doFaking]);
     
     [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100] ];
+    const NSTimeInterval sleepInterval = 1;
+    sleep(sleepInterval);
     NSDate *fakedDate = [NSDate date];
     XCTAssertTrue([NSDate doFaking]);
     
-    XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
+    XCTAssertEqualWithAccuracy([fakedDate timeIntervalSinceDate:realDate],100,0.01);
     XCTAssertTrue([NSDate doFaking]);
     
     [NSDate stopFaking];
     NSDate *realDate2 = [NSDate date];
     XCTAssertFalse([NSDate doFaking]);
-    XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
+    XCTAssertEqualWithAccuracy([realDate2 timeIntervalSinceDate:realDate],sleepInterval,0.01);
 }
 
 - (void)testInit{
     NSDate *realDate = [[NSDate alloc] init];
     
-    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
-                      freeze:YES
-     ];
-    NSDate *fakedDate =  [[NSDate alloc] init];
-    
-    XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100] freeze:YES];
+    const NSTimeInterval sleepInterval = 1;
+    sleep(sleepInterval);
+    NSDate *fakedDate = [[NSDate alloc] init];
+    XCTAssertEqualWithAccuracy([fakedDate timeIntervalSinceDate:realDate],100,0.01);
     
     [NSDate stopFaking];
     NSDate *realDate2 = [[NSDate alloc] init];
-    XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
+    XCTAssertEqualWithAccuracy([realDate2 timeIntervalSinceDate:realDate],sleepInterval,0.01);
 }
 
 - (void)testInitWithTimeIntervalSinceNow{
+    NSDate *realDate = [[NSDate alloc] init];
     
-    NSDate *realDate = [NSDate new];
-    NSDate *realDate60 = [[NSDate alloc] initWithTimeIntervalSinceNow:60];
-    NSTimeInterval realDiff = [realDate60 timeIntervalSinceDate:realDate];
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100] freeze:YES];
+    const NSTimeInterval sleepInterval = 1;
+    sleep(sleepInterval);
+    NSDate *fakedDate = [[NSDate alloc] initWithTimeIntervalSinceNow:100];
+    XCTAssertEqualWithAccuracy([fakedDate timeIntervalSinceDate:realDate],200,0.01);
     
-    [NSDate fakeWithString:@"2014/11/11 11:11:11"];
-    
-    NSDate *fakeDate = [NSDate date];
-    NSDate *fakeDate60 = [[NSDate alloc] initWithTimeIntervalSinceNow:60];
-    NSTimeInterval fakeDiff = [fakeDate60 timeIntervalSinceDate:fakeDate];
-    
-    XCTAssertEqual(
-        (int)realDiff,
-        (int)fakeDiff
-    );
-   
+    [NSDate stopFaking];
+    NSDate *realDate2 = [[NSDate alloc] initWithTimeIntervalSinceNow:150];
+    XCTAssertEqualWithAccuracy([realDate2 timeIntervalSinceDate:realDate],150+sleepInterval,0.01);
 }
 
 - (void)testNow {
     NSDate *realDate = [NSDate now];
     
-    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100]
-                      freeze:YES
-     ];
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100] freeze:YES];
+    const NSTimeInterval sleepInterval = 1;
+    sleep(sleepInterval);
     NSDate *fakedDate = [NSDate now];
     
     XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
     
     [NSDate stopFaking];
     NSDate *realDate2 = [NSDate now];
-    XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
+    XCTAssertEqualWithAccuracy([realDate2 timeIntervalSinceDate:realDate],sleepInterval,0.01);
 }
 
 
@@ -96,17 +92,15 @@
     
     NSDate *realDate = [NSDate dateWithTimeIntervalSinceNow:300];
     
-    [NSDate fakeWithDate:
-        [NSDate dateWithTimeIntervalSinceNow:100]
-                      freeze:YES
-    ];
-    
+    [NSDate fakeWithDate:[NSDate dateWithTimeIntervalSinceNow:100] freeze:YES];
+    const NSTimeInterval sleepInterval = 1;
+    sleep(sleepInterval);
     NSDate *fakedDate = [NSDate dateWithTimeIntervalSinceNow:300];
-    XCTAssertEqual((int)[fakedDate timeIntervalSinceDate:realDate],100);
+    XCTAssertEqualWithAccuracy([fakedDate timeIntervalSinceDate:realDate],100,0.01);
     
     [NSDate stopFaking];
     NSDate *realDate2 = [NSDate dateWithTimeIntervalSinceNow:300];
-    XCTAssertEqual((int)[realDate2 timeIntervalSinceDate:realDate],0);
+    XCTAssertEqualWithAccuracy([realDate2 timeIntervalSinceDate:realDate],sleepInterval,0.01);
     
 }
 
